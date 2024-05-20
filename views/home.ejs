@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en">
+  <%- include("./partials/header", {title:"Page d'accueil"}) %>
+
+  <body>
+    <div class="container">
+        <% if (locals.connected) { %>
+            
+            <h1>Bonjour <%= locals.user.username %></h1>
+            <% } else { %>
+            <h1>Bonjour Inconnu</h1>
+             
+        <% }  %>
+
+    </div>
+  </body>
+</html>

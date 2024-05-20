@@ -1,9 +1,15 @@
-import { Injectable } from '@nestjs/common';
+import {
+  ConflictException,
+  Injectable,
+  NotFoundException,
+  UnauthorizedException,
+} from '@nestjs/common';
 import { SignupDto } from './dtos/signupDto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { User } from './user.entity';
 import { Repository } from 'typeorm';
 import * as bcrypt from 'bcrypt';
+import { LoginDto } from './dtos/loginDto';
 
 @Injectable()
 export class UserService {
@@ -20,7 +26,19 @@ export class UserService {
       await this.usersRepository.save(user);
       return 'User Created!';
     } catch (error) {
-      console.log('error', error);
+      throw new ConflictException(error.message);
     }
+  }
+
+  async postLogin(body: LoginDto) {
+    const { password, email } = body;
+    const user = await this.usersRepository.findOne({
+      where: { email: email },
+    });
+
+    if (!user) throw new NotFoundException('User Not Found !');
+    const match = await bcrypt.compare(password, user.password);
+    if (!match) throw new UnauthorizedException('Wrong Password !');
+    return user;
   }
 }
