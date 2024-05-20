@@ -5,13 +5,22 @@
   <body>
     <div class="container">
         <% if (locals.connected) { %>
-            
             <h1>Bonjour <%= locals.user.username %></h1>
-            <% } else { %>
+        <% } else { %>
             <h1>Bonjour Inconnu</h1>
-             
-        <% }  %>
+        <% } %>
 
+          <% if (locals.posts) { %>
+            <main class="posts">
+              <% posts.forEach(post => { %>
+                <div class="post">
+                  <h3>Titre : <%= post.title %></h3>
+                  <p>Contenu : <%= post.content.substring(0,150).concat("...") %></p>
+                  <button class="btn-submit"><a href="/post/detail/<%= post.id%>">Lire la suite</a></button>
+                </div>
+              <% }) %>
+            </main>
+          <% } %>
     </div>
   </body>
 </html>

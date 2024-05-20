@@ -1,11 +1,14 @@
 import { Controller, Get, Render } from '@nestjs/common';
-import { AppService } from './app.service';
+import { PostService } from './post/post.service';
 
 @Controller()
 export class AppController {
-  constructor(private readonly appService: AppService) {}
+  constructor(private readonly postService: PostService) {}
 
   @Get()
   @Render('home')
-  getHome() {}
+  async getHome() {
+    const posts = await this.postService.getAllPosts();
+    return { posts };
+  }
 }
