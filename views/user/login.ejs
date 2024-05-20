@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="en">
+  <%- include("../partials/header", {title:"Page de connexion"}) %>
+
+  <body>
+    <div class="container">
+      <h1>Page de connexion</h1>
+      <form action="" method="post" class="registration-form">
+        <%- include('../components/input',{type:"email", name:"email"}) %>
+        <%- include('../components/input',{type:"password", name:"password"}) %>
+        <button type="submit" class="btn-submit">Connexion</button>
+      </form>
+    </div>
+  </body>
+</html>
