@@ -1,15 +1,21 @@
 <!doctype html>
 <html lang="en">
-  <%- include("../partials/header", {title:"Page de connexion"}) %>
+<%- include("../partials/header", {title:"Connexion"}) %>
 
-  <body>
-    <div class="container">
-      <h1>Page de connexion</h1>
+<body>
+  <div class="container">
+    <div class="login-img-container">
+      <img aria-hidden="true" alt="" fetchpriority="high" decoding="async" data-nimg="fill" class="object-cover" sizes="1600px" src="/log-in@2x.webp">
+    </div>
+    <section class="login-section">
+      <h1 class="login-title">Connexion</h1>
       <form action="" method="post" class="registration-form">
         <%- include('../components/input',{type:"email", name:"email"}) %>
         <%- include('../components/input',{type:"password", name:"password"}) %>
         <button type="submit" class="btn-submit">Connexion</button>
       </form>
-    </div>
-  </body>
+    </section>
+  </div>
+</body>
+
 </html>
