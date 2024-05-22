@@ -1,16 +1,18 @@
 <!doctype html>
 <html lang="en">
-  <%- include("../partials/header", {title:"Inscription"}) %>
+<%- include("../partials/header", {title:"Inscription"}) %>
 
   <body>
-    <div class="container">
-      <h1>Inscription</h1>
+    <div class="container"
+      style="margin-top: 100px;height:100svh; background: radial-gradient(50% 50% at 50% 50%, #1C2434 0%, var(--background) 100%);">
+      <h1 class="login-title">Inscription</h1>
       <form action="" method="post" class="registration-form">
         <%- include('../components/input',{type:"text", name:"username"}) %>
-        <%- include('../components/input',{type:"email", name:"email"}) %>
-        <%- include('../components/input',{type:"password", name:"password"}) %>
-        <button type="submit" class="btn-submit">Inscription</button>
+          <%- include('../components/input',{type:"email", name:"email"}) %>
+            <%- include('../components/input',{type:"password", name:"password"}) %>
+              <button type="submit" class="btn-submit">Inscription</button>
       </form>
     </div>
   </body>
+
 </html>

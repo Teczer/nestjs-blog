@@ -11,11 +11,11 @@ import { Post } from './post/post.entity';
   imports: [
     TypeOrmModule.forRoot({
       type: 'mysql',
-      host: 'localhost',
-      port: 3306,
-      username: 'root',
-      password: 'root',
-      database: 'blog',
+      host: 'mysql-3881742f-nest-teczer-444.d.aivencloud.com',
+      port: 22562,
+      username: 'avnadmin',
+      password: 'AVNS_T0JAJ_68H0qSo8xAS2N',
+      database: 'defaultdb',
       entities: [User, Post],
       synchronize: true,
     }),

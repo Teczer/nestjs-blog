@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+  <%- include("../partials/header", {title:"Post"}) %>
+  <body>
+    <div class="container">
+      <% if (post) { %>
+      <h1>Post numéro : <%= post.id %></h1>
+        <main class="posts">
+          <div class="post">
+            <h3 class="post_title"><%= post.title %></h3>
+            <p class="post_content">
+              <%= post.content %>
+            </p>
+            <%- include("../components/postdate", {createdRow: post.created_at}) %>
+          </div>
+        </main>
+      <% } %>
+    </div>
+  </body>
+</html>

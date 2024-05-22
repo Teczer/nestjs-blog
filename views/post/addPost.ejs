@@ -1,16 +1,23 @@
 <!doctype html>
 <html lang="en">
-  <%- include("../partials/header", {title:"Ajouter un article"}) %>
+	<%- include("../partials/header", {title:"Ajouter un article"}) %>
+	<body>
+		<div class="container">
+			<h1>Ajouter un article</h1>
+			<form action="" method="post" class="registration-form">
+				<%- include('../components/input',{type:"text", name:"title"}) %>
+				<div class="form-group">
+					<label>Content</label>
+					<textarea name="content"></textarea>
+				</div>
+				<button type="submit" class="btn-submit">
+					<i class="fa-solid fa-plus"></i>
+					<span>
+						Ajouter
+					</span>
+				</button>
+			</form>
+		</div>
+	</body>
 
-  <body>
-    <div class="container">
-      <h1>Ajouter un article</h1>
-      <form action="" method="post" class="registration-form">
-        <%- include('../components/input',{type:"text", name:"title"}) %>
-        <label>Content</label>
-        <textarea name="content"></textarea>
-        <button type="submit" class="btn-submit">Ajouter</button>
-      </form>
-    </div>
-  </body>
 </html>

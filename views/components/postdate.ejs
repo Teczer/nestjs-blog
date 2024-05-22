@@ -1,0 +1,17 @@
+<p class="post_date">
+    <% 
+      const now = new Date();
+      const createdAt = new Date(createdRow);
+      const diffInMs = now - createdAt;
+      const diffInDays = diffInMs / (1000 * 60 * 60 * 24);
+      if (diffInDays >= 1) { 
+        const diffInFullDays = Math.floor(diffInDays);
+    %>
+      Publié il y a <%= diffInFullDays %> jour<%= diffInFullDays > 1 ? 's' : '' %>
+    <% 
+      } else { 
+        const diffInHours = Math.floor(diffInMs / (1000 * 60 * 60));
+    %>
+      Publié il y a <%= diffInHours %> heure<%= diffInHours > 1 ? 's' : '' %>
+    <% } %>
+  </p>

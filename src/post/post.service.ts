@@ -26,4 +26,9 @@ export class PostService {
 
     return posts;
   }
+
+  async getDetailPost(id: number): Promise<Post> {
+    const post = await this.postRepository.findOne({ where: { id } });
+    return post;
+  }
 }

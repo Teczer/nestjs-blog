@@ -2,6 +2,7 @@ import {
   Body,
   Controller,
   Get,
+  Param,
   Post,
   Redirect,
   Render,
@@ -26,5 +27,14 @@ export class PostController {
   ) {
     const currentUser: User = session.user;
     return await this.postService.postAddPost(body, currentUser);
+  }
+
+  @Get('/detail/:id')
+  @Render('post/detailPost')
+  async getDetailPost(@Param('id') id: number) {
+    const post = await this.postService.getDetailPost(id);
+
+    console.log('post', post);
+    return { post };
   }
 }
