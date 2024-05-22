@@ -1,23 +1,31 @@
 import { Module } from '@nestjs/common';
+import { ConfigModule, ConfigService } from '@nestjs/config';
+import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { UserModule } from './user/user.module';
-import { TypeOrmModule } from '@nestjs/typeorm';
-import { User } from './user/user.entity';
 import { PostModule } from './post/post.module';
+import { User } from './user/user.entity';
 import { Post } from './post/post.entity';
 
 @Module({
   imports: [
-    TypeOrmModule.forRoot({
-      type: 'mysql',
-      host: 'mysql-3881742f-nest-teczer-444.d.aivencloud.com',
-      port: 22562,
-      username: 'avnadmin',
-      password: 'AVNS_T0JAJ_68H0qSo8xAS2N',
-      database: 'defaultdb',
-      entities: [User, Post],
-      synchronize: true,
+    ConfigModule.forRoot({
+      isGlobal: true, // Make the module globally available
+    }),
+    TypeOrmModule.forRootAsync({
+      imports: [ConfigModule],
+      useFactory: async (configService: ConfigService) => ({
+        type: 'mysql',
+        host: configService.get<string>('DB_HOST'),
+        port: configService.get<number>('DB_PORT'),
+        username: configService.get<string>('DB_USERNAME'),
+        password: configService.get<string>('DB_PASSWORD'),
+        database: configService.get<string>('DB_DATABASE'),
+        entities: [User, Post],
+        synchronize: true,
+      }),
+      inject: [ConfigService],
     }),
     UserModule,
     PostModule,
