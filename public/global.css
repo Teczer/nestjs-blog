@@ -59,7 +59,6 @@ ul {
 .container {
   padding-bottom: 2rem;
   background-color: var(--background);
-  width: 100%;
   min-height: auto;
   display: flex;
   flex-direction: column;
@@ -231,7 +230,7 @@ h1 {
 
 .post_date {
   color: rgb(203 213 225);
-  font-weight: thin;
+  font-weight: lighter;
   font-style: italic;
 }
 
@@ -405,4 +404,42 @@ textarea {
 html {
   scrollbar-width: thin;
   scrollbar-color: var(--gray-900) var(--gray-950);
+}
+
+/* Pour les écrans d'une largeur maximale de 768 pixels */
+@media screen and (max-width: 768px) {
+  .posts {
+    width: 90%;
+  }
+
+  .post_title {
+    font-size: 2rem;
+  }
+
+  .container {
+    padding: 1rem 20px;
+    margin-top: 0px !important;
+  }
+
+  .login-img-container {
+    display: none;
+  }
+
+  .login-section {
+    width: 100%;
+    justify-content: start;
+  }
+
+  .login-title {
+    font-size: 2.5rem;
+  }
+
+  .registration-form {
+    width: 80%;
+  }
+
+  .post_content {
+    max-width: 100%;
+    word-wrap: break-word;
+  }
 }
