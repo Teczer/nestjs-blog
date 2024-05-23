@@ -1,8 +1,3 @@
-* {
-  padding: 0;
-  margin: 0;
-}
-
 :root {
   --gray-950: hsl(217, 45%, 6%);
   --gray-900: hsl(219, 44%, 8%);
@@ -28,12 +23,46 @@
   --radius: 0.5rem;
 }
 
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  scrollbar-width: thin;
+  scrollbar-color: var(--gray-900) var(--gray-950);
+}
+
+/* WebKit Browsers (Chrome, Safari) */
+::-webkit-scrollbar {
+  width: 12px; /* width of the scrollbar */
+  height: 12px; /* height of the scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background: var(--gray-950); /* background of the scrollbar track */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--gray-900); /* color of the scrollbar thumb */
+  border-radius: 6px; /* roundness of the scrollbar thumb */
+  border: 3px solid var(--gray-950); /* space around the scrollbar thumb */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--foreground);
+}
+
+html {
+  scrollbar-width: thin;
+  scrollbar-color: var(--gray-900) var(--gray-950);
+}
+
 body {
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif !important;
   padding: 0;
   margin: 0;
   background-color: var(--background);
   overflow-x: hidden;
+  max-width: 100svw;
 }
 
 button {
@@ -372,40 +401,6 @@ textarea {
   animation: fadeIn 2s ease forwards;
 }
 
-/* WebKit Browsers (Chrome, Safari) */
-::-webkit-scrollbar {
-  width: 12px; /* width of the scrollbar */
-  height: 12px; /* height of the scrollbar */
-}
-
-::-webkit-scrollbar-track {
-  background: var(--gray-950); /* background of the scrollbar track */
-}
-
-::-webkit-scrollbar-thumb {
-  background-color: var(--gray-900); /* color of the scrollbar thumb */
-  border-radius: 6px; /* roundness of the scrollbar thumb */
-  border: 3px solid var(--gray-950); /* space around the scrollbar thumb */
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background-color: var(
-    --foreground
-  ); /* color of the scrollbar thumb on hover */
-}
-
-/* Firefox */
-* {
-  scrollbar-width: thin; /* scrollbar width */
-  scrollbar-color: var(--gray-900) var(--gray-950); /* scrollbar thumb and track color */
-}
-
-/* For Edge and other browsers using standard scrollbar properties */
-html {
-  scrollbar-width: thin;
-  scrollbar-color: var(--gray-900) var(--gray-950);
-}
-
 /* Pour les écrans d'une largeur maximale de 768 pixels */
 @media screen and (max-width: 768px) {
   .posts {
@@ -414,6 +409,10 @@ html {
 
   .post_title {
     font-size: 2rem;
+  }
+
+  .post_date {
+    font-size: 13px;
   }
 
   .container {
@@ -441,5 +440,13 @@ html {
   .post_content {
     max-width: 100%;
     word-wrap: break-word;
+  }
+
+  .svg-light {
+    display: none;
+  }
+
+  .hello-user {
+    font-size: 20px;
   }
 }

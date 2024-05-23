@@ -17,9 +17,9 @@
       </defs>
     </svg>
     <% if (locals.connected) { %>
-    <h1>Bonjour <%= locals.user.username %></h1>
+    <h1 class="hello-user">Bonjour <%= locals.user.username %></h1>
     <% } else { %>
-    <h1>Bonjour Inconnu</h1>
+    <h1 class="hello-user">Bonjour Inconnu</h1>
     <% } %>
 
     <% if (locals.posts) { %>
