@@ -131,18 +131,24 @@ h1 {
 }
 
 .btn-submit {
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 0.15s;
   padding: 10px 20px;
-  background-color: var(--primary);
-  color: var(--primary-foreground);
+  background-color: #4bcce5;
+  font-weight: 600;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  white-space: nowrap;
+  width: 100%;
   border: none;
-  border-radius: var(--radius);
+  height: 3.5rem;
   cursor: pointer;
-  font-size: 16px;
-  transition: background-color 0.3s ease;
 }
 
 .btn-submit:hover {
-  background-color: var(--secondary);
+  background-color: var(--primary);
 }
 
 .navigation {
@@ -153,7 +159,7 @@ h1 {
   color: white !important;
   border-bottom: 1px solid var(--border);
   padding: 10px 20px;
-  height: 50px;
+  height: 4rem;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
@@ -200,6 +206,15 @@ h1 {
   &:hover {
     background-color: hsla(177, 87%, 75%, 0.9);
   }
+}
+
+.signup-privacy-box {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px !important;
+  color: #c1d1e6 !important;
 }
 
 .nav-button {
@@ -399,6 +414,16 @@ textarea {
   left: 150px;
   opacity: 0;
   animation: fadeIn 2s ease forwards;
+}
+
+.login-sub-title {
+  color: #94a5bb;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  text-wrap: balance;
+  max-width: 640px;
+  font-weight: 300;
+  font-style: italic;
 }
 
 /* Pour les écrans d'une largeur maximale de 768 pixels */
